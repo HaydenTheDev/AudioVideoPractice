@@ -102,5 +102,20 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/seekBar"
-        app:layout_constraintVertical_bias="0.09" />
+        app:layout_constraintVertical_bias="0.09"
+        tools:text="Move Back and Forth" />
+
+    <SeekBar
+        android:id="@+id/seekbarMove"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="118dp"
+        android:layout_height="18dp"
+        android:layout_marginTop="28dp"
+        android:max="10"
+        android:progress="3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/volumeText"
+        app:layout_constraintStart_toStartOf="@+id/volumeText"
+        app:layout_constraintTop_toBottomOf="@+id/volumeText"
+        app:layout_constraintVertical_bias="0.067" />
 </androidx.constraintlayout.widget.ConstraintLayout>

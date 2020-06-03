@@ -16,10 +16,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, SeekBar.OnSeekBarChangeListener{
 
     //UI Components
-    private SeekBar seekBar;
+    private SeekBar seekBar, moveBackAndForth;
     private VideoView myVideoView;
     private Button myVideoButton, playMusicBtn, pauseMusicBtn;
     private MediaController mediaController;
@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         pauseMusicBtn = findViewById(R.id.pauseMusicBtn);
         myVideoButton = findViewById(R.id.videoButton);
         volumeText = findViewById(R.id.volumeText);
+        moveBackAndForth = findViewById(R.id.seekbarMove);
         seekBar = findViewById(R.id.seekBar);
         myVideoButton.setOnClickListener(MainActivity.this);
         playMusicBtn.setOnClickListener(MainActivity.this);
@@ -62,7 +63,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                    Toast.makeText(MainActivity.this,
                            Integer.toString(progress),
                            Toast.LENGTH_SHORT).show();
-                   volumeText.setText(progress);
                    audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, progress, 0);
                 }
             }
@@ -117,5 +117,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onResume();
 
         mediaPlayer.start();
+    }
+
+    @Override
+    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+        if(fromUser) {
+            Toast.makeText(this, Integer.toString(progress), Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void onStartTrackingTouch(SeekBar seekBar) {
+
+    }
+
+    @Override
+    public void onStopTrackingTouch(SeekBar seekBar) {
+
     }
 }

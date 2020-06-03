@@ -14,7 +14,7 @@ import java.net.URI;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private VideoView myVideoView;
-    private Button myButton;
+    private Button myVideoButton, playMusicBtn, pauseMusicBtn;
     private MediaController mediaController;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,8 +22,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         myVideoView = findViewById(R.id.myVideoView);
-        myButton = findViewById(R.id.button);
-        myButton.setOnClickListener(MainActivity.this);
+        playMusicBtn = findViewById(R.id.playMusicBtn);
+        pauseMusicBtn = findViewById(R.id.pauseMusicBtn);
+        myVideoButton = findViewById(R.id.button);
+        myVideoButton.setOnClickListener(MainActivity.this);
+        playMusicBtn.setOnClickListener(MainActivity.this);
+        pauseMusicBtn.setOnClickListener(MainActivity.this);
 
         mediaController = new MediaController(MainActivity.this);
 
